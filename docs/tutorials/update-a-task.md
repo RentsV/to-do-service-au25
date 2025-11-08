@@ -31,7 +31,7 @@ last_updated: "2025-10-25"
 # Tutorial: Update a task
 
 In this tutorial, you learn to update an existing task.
-It will take about 15 minutes to complete.
+It takes about 15 minutes to complete.
 
 ## Before you start
 
@@ -41,7 +41,7 @@ This way, the system is ready and you can get started with the service right awa
 ## Update a task
 
 Updating an existing task in the service requires the `PUT` method.
-This will overwrite the existing [`task`](../api/task.md) details.
+This overwrites the existing [`task`](../api/task.md) details.
 
 ### Update a task in Postman
 
@@ -58,10 +58,11 @@ To update a task in Postman:
 3. If you already know the ID of the task you wish to update, skip this step.
 If you do not, start with a GET request in Postman to see all existing tasks:
     * **METHOD**: GET
-    * **URL**: `{{base_url}}/tasks`
-        > **_Note:_** In our case, `{{base_url}}` is `http://localhost:3000`.
+    * **URL**: `{base_url}/tasks`
+        > **_Note:_** Here, `{base_url}` is `http://localhost:3000`.
 
-    The expected output for each task looks like this (note that the **task ID** is the **last element**):
+    The expected output for each task looks like the following.
+    Note that the **task ID** is the **last element**.:
 
     ```js
     {
@@ -77,10 +78,10 @@ If you do not, start with a GET request in Postman to see all existing tasks:
 4. To update a chosen task in Postman, create a new request with the values shown below.
 Make sure to substitute `taskId` for the ID of your chosen task with no curly brackets around the number.
     * **METHOD**: PUT
-    * **URL**: `{{base_url}}/tasks/{taskId}`
+    * **URL**: `{base_url}/tasks/{taskId}`
     * **Request body**:
         You can change the values of each property as you'd like.
-        For example, changing only the `userId` would assign the original task (recital) to a new person.
+        For example, changing only the `userId` would assign the original task of recital to a new person.
         As it stands now, this person would miss out on the piano recital and get soda instead.
 
         ```js
@@ -97,10 +98,11 @@ Make sure to substitute `taskId` for the ID of your chosen task with no curly br
 5. In the Postman app, choose **Send** to make the request.
 6. Take a look at the response body.
 It should be identical to your request body.
-7. This step is **not** necessary; your task is updated.
+7. If the response body was identical to the request body, this step is **not** necessary.
+   You updated the task.
 But if you are a person who likes to double-check everything, you can repeat step number 3.
-Alternatively, you can run the GET request but with `{{base_url}}/tasks/{taskId}`.
-This will only show you the updated task.
+You can also run the GET request but with `{base_url}/tasks/{taskId}`.
+This request only shows you the updated task.
 
 ### Update a task in the terminal
 
@@ -124,7 +126,8 @@ Thus, the whole request would look like this:
    curl http://localhost:3000/tasks
    ```
 
-    The expected output for each task looks like this (note that the **task ID** is the **last element**):
+    The expected output for each task looks like the following.
+    Note that the **task ID** is the **last element**:
 
     ```js
     {
@@ -154,10 +157,10 @@ This is the same cola example from Postman, but in a terminal:
    }"
    ```
 
-   Let's break it down:
-   * Backslashes are just for readability - to break a long command into multiple lines.
+   To break it down:
+   * Backslashes are just for readability - to break a long command into separate lines.
    * `-X PUT` followed by an endpoint tells curl which HTTP method to use.
-   * `-H` specifies the header. (Postman does it automatically when the body is in JSON.)
+   * `-H` specifies the header. This is different from how Postman does it.
    * `-d "{...}"` defines the body data.
    * Backslashes in the request body escape double quotes.
    Otherwise, the shell would interpret double quotes as part of code.
